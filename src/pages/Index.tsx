@@ -57,7 +57,7 @@ const Index = () => {
       readTime: "7 min",
       category: "Gestión de Inventario",
       image: "/lovable-uploads/661c74a8-8b39-4eb9-9aa9-497448c101f1.png",
-      slug: ""
+      slug: "/articulo/gestion-productos-caos-control-total"
     },
     {
       title: "Marketing en el Punto de Venta: Convierte Visitas en Ventas",
