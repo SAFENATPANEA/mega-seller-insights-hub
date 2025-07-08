@@ -1,5 +1,6 @@
 
 import { Calendar, User, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface FeaturedArticleProps {
   title: string;
@@ -59,15 +60,16 @@ const FeaturedArticle = ({ title, excerpt, author, date, readTime, image }: Feat
               </div>
             </div>
             
-            <button 
-              className="px-6 py-3 font-medium corner-medium hover:opacity-90 transition-opacity duration-200"
+            <Link
+              to="/articulo/optimizar-inventario-reducir-costos"
+              className="inline-block px-6 py-3 font-medium corner-medium hover:opacity-90 transition-opacity duration-200"
               style={{ 
                 background: 'var(--md-sys-color-primary-gradient)',
                 color: 'var(--md-sys-color-on-primary)'
               }}
             >
               Leer artículo completo
-            </button>
+            </Link>
           </div>
         </div>
       </div>
