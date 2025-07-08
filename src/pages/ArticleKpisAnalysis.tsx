@@ -65,7 +65,7 @@ const ArticleKpisAnalysis = () => {
         {/* Hero Image */}
         <div className="mb-12 elevation-1 corner-large overflow-hidden">
           <img 
-            src="/lovable-uploads/83da801a-7866-4dbc-a9d2-c0df4e9c3e9d.png"
+            src="/lovable-uploads/kpi.png"
             alt="Dashboard con gráficos de KPIs de ventas mostrando análisis de datos empresariales"
             className="w-full h-64 md:h-96 object-cover"
           />

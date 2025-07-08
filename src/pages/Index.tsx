@@ -47,6 +47,7 @@ const Index = () => {
       date: "10 Dic 2024",
       readTime: "10 min",
       category: "Análisis de Datos",
+      image: "/lovable-uploads/kpi.png",
       slug: "/articulo/analisis-ventas-kpis-negocio"
     },
     {
