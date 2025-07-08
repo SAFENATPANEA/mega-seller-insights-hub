@@ -38,7 +38,7 @@ const Index = () => {
       readTime: "6 min",
       category: "Atención al Cliente",
       image: "/lovable-uploads/b75fd21c-52d4-4ac8-907e-922782fb3614.png",
-      slug: ""
+      slug: "/articulo/fidelizar-clientes-pos-inteligente"
     },
     {
       title: "Análisis de Ventas: KPIs que Todo Dueño de Negocio Debe Conocer",
