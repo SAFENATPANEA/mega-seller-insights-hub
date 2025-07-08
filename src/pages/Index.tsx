@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import FeaturedArticle from '../components/FeaturedArticle';
 import BlogCard from '../components/BlogCard';
@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
+  const navigate = useNavigate();
 
   const categories = [
     'Todos',
@@ -36,7 +37,8 @@ const Index = () => {
       date: "12 Dic 2024",
       readTime: "6 min",
       category: "Atención al Cliente",
-      image: "/lovable-uploads/b75fd21c-52d4-4ac8-907e-922782fb3614.png"
+      image: "/lovable-uploads/b75fd21c-52d4-4ac8-907e-922782fb3614.png",
+      slug: ""
     },
     {
       title: "Análisis de Ventas: KPIs que Todo Dueño de Negocio Debe Conocer",
@@ -44,7 +46,8 @@ const Index = () => {
       author: "Ana Torres",
       date: "10 Dic 2024",
       readTime: "10 min",
-      category: "Análisis de Datos"
+      category: "Análisis de Datos",
+      slug: "/articulo/analisis-ventas-kpis-negocio"
     },
     {
       title: "Gestión de Productos: Del Caos al Control Total",
@@ -53,7 +56,8 @@ const Index = () => {
       date: "8 Dic 2024",
       readTime: "7 min",
       category: "Gestión de Inventario",
-      image: "/lovable-uploads/661c74a8-8b39-4eb9-9aa9-497448c101f1.png"
+      image: "/lovable-uploads/661c74a8-8b39-4eb9-9aa9-497448c101f1.png",
+      slug: ""
     },
     {
       title: "Marketing en el Punto de Venta: Convierte Visitas en Ventas",
@@ -61,7 +65,8 @@ const Index = () => {
       author: "Laura Vásquez",
       date: "5 Dic 2024",
       readTime: "9 min",
-      category: "Marketing Retail"
+      category: "Marketing Retail",
+      slug: ""
     },
     {
       title: "Seguridad en Sistemas POS: Protege tu Negocio y tus Clientes",
@@ -69,7 +74,8 @@ const Index = () => {
       author: "Miguel Herrera",
       date: "3 Dic 2024",
       readTime: "12 min",
-      category: "Tecnología POS"
+      category: "Tecnología POS",
+      slug: ""
     },
     {
       title: "Inventario Estacional: Planifica como los Grandes Retailers",
@@ -77,9 +83,18 @@ const Index = () => {
       author: "Sofia Ramírez",
       date: "1 Dic 2024",
       readTime: "8 min",
-      category: "Gestión de Inventario"
+      category: "Gestión de Inventario",
+      slug: ""
     }
   ];
+
+  const handleBlogCardClick = (slug: string) => {
+    if (slug) {
+      navigate(slug);
+    } else {
+      console.log('Artículo próximamente disponible');
+    }
+  };
 
   const filteredPosts = activeCategory === 'Todos' 
     ? blogPosts 
@@ -119,8 +134,14 @@ const Index = () => {
             {filteredPosts.map((post, index) => (
               <BlogCard
                 key={index}
-                {...post}
-                onClick={() => console.log(`Clicked on: ${post.title}`)}
+                title={post.title}
+                excerpt={post.excerpt}
+                author={post.author}
+                date={post.date}
+                readTime={post.readTime}
+                category={post.category}
+                image={post.image}
+                onClick={() => handleBlogCardClick(post.slug)}
               />
             ))}
           </div>
