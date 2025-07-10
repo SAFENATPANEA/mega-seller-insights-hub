@@ -68,6 +68,7 @@ const Index = () => {
       date: "5 Dic 2024",
       readTime: "9 min",
       category: "Marketing Retail",
+      image: "/lovable-uploads/marketing-pos.png",
       slug: "/articulo/marketing-punto-venta-convierte-visitas-ventas"
     },
     {
