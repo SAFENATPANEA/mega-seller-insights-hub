@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SEOHead from '../components/SEOHead';
 import Header from '../components/Header';
 import FeaturedArticle from '../components/FeaturedArticle';
 import BlogCard from '../components/BlogCard';
@@ -102,107 +101,59 @@ const Index = () => {
     ? blogPosts 
     : blogPosts.filter(post => post.category === activeCategory);
 
-  // SEO Data for Homepage
-  const seoData = {
-    title: "Blog MegaSeller - Consejos Expertos para Optimizar tu Negocio",
-    description: "Descubre estrategias probadas, consejos expertos y las mejores prácticas para hacer crecer tu negocio con tecnología POS inteligente. Artículos sobre gestión de inventario, análisis de ventas, fidelización de clientes y más.",
-    keywords: "blog megaseller, consejos negocio, sistema POS, gestión inventario, análisis ventas, fidelización clientes, retail, comercio electrónico, optimización negocio",
-    ogImage: "https://dhquwautvymwazbaojgf.storage.supabase.co/v1/object/public/pos-bucket//mega-seller-logo.ico"
-  };
-
-  // Structured data for blog listing
-  const blogStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Insights Hub - Mega Seller POS",
-    "description": "Blog con consejos expertos y estrategias para optimizar tu negocio retail",
-    "url": "https://megaseller.com/blog",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Mega Seller POS",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://dhquwautvymwazbaojgf.storage.supabase.co/v1/object/public/pos-bucket//mega-seller-logo.ico"
-      }
-    },
-    "blogPost": blogPosts.filter(post => post.slug).map(post => ({
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "author": {
-        "@type": "Person",
-        "name": post.author
-      },
-      "datePublished": post.date,
-      "image": post.image,
-      "url": `https://megaseller.com${post.slug}`,
-      "articleSection": post.category
-    }))
-  };
-
   return (
-    <>
-      <SEOHead 
-        title={seoData.title}
-        description={seoData.description}
-        keywords={seoData.keywords}
-        ogImage={seoData.ogImage}
-        structuredData={blogStructuredData}
-      />
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--md-sys-color-background)' }}>
+      <Header />
       
-      <div className="min-h-screen" style={{ backgroundColor: 'var(--md-sys-color-background)' }}>
-        <Header />
-        
-        {/* Hero Section */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--md-sys-color-on-primary-container)' }}>
-              Blog MegaSeller
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Consejos expertos, estrategias probadas y las mejores prácticas para 
-              hacer crecer tu negocio con tecnología inteligente.
-            </p>
+      {/* Hero Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--md-sys-color-on-primary-container)' }}>
+            Blog MegaSeller
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Consejos expertos, estrategias probadas y las mejores prácticas para 
+            hacer crecer tu negocio con tecnología inteligente.
+          </p>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Featured Article */}
+        <FeaturedArticle {...featuredArticle} />
+
+        {/* Category Filter */}
+        <CategoryFilter 
+          categories={categories}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
+        />
+
+        {/* Blog Grid */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post, index) => (
+              <BlogCard
+                key={index}
+                title={post.title}
+                excerpt={post.excerpt}
+                author={post.author}
+                date={post.date}
+                readTime={post.readTime}
+                category={post.category}
+                image={post.image}
+                onClick={() => handleBlogCardClick(post.slug)}
+              />
+            ))}
           </div>
         </section>
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Featured Article */}
-          <FeaturedArticle {...featuredArticle} />
+        {/* Newsletter */}
+        <Newsletter />
+      </main>
 
-          {/* Category Filter */}
-          <CategoryFilter 
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-
-          {/* Blog Grid */}
-          <section className="mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post, index) => (
-                <BlogCard
-                  key={index}
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  author={post.author}
-                  date={post.date}
-                  readTime={post.readTime}
-                  category={post.category}
-                  image={post.image}
-                  onClick={() => handleBlogCardClick(post.slug)}
-                />
-              ))}
-            </div>
-          </section>
-
-          {/* Newsletter */}
-          <Newsletter />
-        </main>
-
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

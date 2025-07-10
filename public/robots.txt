@@ -1,17 +1,14 @@
-User-agent: *
+User-agent: Googlebot
 Allow: /
 
-# Sitemap location
-Sitemap: https://megaseller.com/sitemap.xml
+User-agent: Bingbot
+Allow: /
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
+User-agent: Twitterbot
+Allow: /
 
-# Disallow admin areas (if any)
-Disallow: /admin/
-Disallow: /api/
+User-agent: facebookexternalhit
+Allow: /
 
-# Allow all other content
-Allow: /articulo/
-Allow: /blog/
-Allow: /recursos/
+User-agent: *
+Allow: /
