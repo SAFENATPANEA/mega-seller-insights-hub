@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo y descripción */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            <a href="https://megaseller.net" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 mb-4">
               <img 
                 src="/lovable-uploads/83da801a-7866-4dbc-a9d2-c0df4e9c3e9d.png" 
                 alt="MegaSeller Logo" 
@@ -23,7 +23,7 @@ const Footer = () => {
               >
                 MegaSeller
               </div>
-            </div>
+            </a>
             <p 
               className="text-gray-300 mb-6 max-w-md"
             >

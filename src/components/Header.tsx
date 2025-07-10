@@ -10,14 +10,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a href="https://megaseller.net" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/83da801a-7866-4dbc-a9d2-c0df4e9c3e9d.png" 
               alt="MegaSeller Logo" 
               className="h-8 w-8"
             />
             <div className="text-white font-bold text-xl">MegaSeller</div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
