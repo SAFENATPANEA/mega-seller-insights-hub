@@ -78,7 +78,8 @@ const Index = () => {
       date: "3 Dic 2024",
       readTime: "12 min",
       category: "Tecnología POS",
-      slug: ""
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      slug: "/articulo/seguridad-sistemas-pos-protege-negocio-clientes"
     },
     {
       title: "Inventario Estacional: Planifica como los Grandes Retailers",
