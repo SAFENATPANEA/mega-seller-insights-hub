@@ -88,7 +88,8 @@ const Index = () => {
       date: "1 Dic 2024",
       readTime: "8 min",
       category: "Gestión de Inventario",
-      slug: ""
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      slug: "/articulo/inventario-estacional-planifica-grandes-retailers"
     }
   ];
 

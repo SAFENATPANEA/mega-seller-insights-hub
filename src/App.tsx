@@ -11,6 +11,7 @@ import ArticleProductManagement from "./pages/ArticleProductManagement";
 import ArticleCustomerLoyalty from "./pages/ArticleCustomerLoyalty";
 import ArticleMarketingPOS from "./pages/ArticleMarketingPOS";
 import ArticlePOSSecurity from "./pages/ArticlePOSSecurity";
+import ArticleSeasonalInventory from "./pages/ArticleSeasonalInventory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/articulo/fidelizar-clientes-pos-inteligente" element={<ArticleCustomerLoyalty />} />
           <Route path="/articulo/marketing-punto-venta-convierte-visitas-ventas" element={<ArticleMarketingPOS />} />
           <Route path="/articulo/seguridad-sistemas-pos-protege-negocio-clientes" element={<ArticlePOSSecurity />} />
+          <Route path="/articulo/inventario-estacional-planifica-grandes-retailers" element={<ArticleSeasonalInventory />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
