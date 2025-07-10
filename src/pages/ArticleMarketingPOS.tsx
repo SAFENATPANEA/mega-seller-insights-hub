@@ -65,7 +65,7 @@ const ArticleMarketingPOS = () => {
         {/* Featured Image */}
         <div className="mb-12 corner-large overflow-hidden elevation-1">
           <img 
-            src="/lovable-uploads/661c74a8-8b39-4eb9-9aa9-497448c101f1.png" 
+            src="/lovable-uploads/marketting pos.png" 
             alt="Marketing en el punto de venta" 
             className="w-full h-64 md:h-96 object-cover"
           />
