@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -67,7 +68,7 @@ const Index = () => {
       date: "5 Dic 2024",
       readTime: "9 min",
       category: "Marketing Retail",
-      slug: ""
+      slug: "/articulo/marketing-punto-venta-convierte-visitas-ventas"
     },
     {
       title: "Seguridad en Sistemas POS: Protege tu Negocio y tus Clientes",

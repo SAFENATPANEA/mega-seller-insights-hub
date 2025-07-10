@@ -9,6 +9,7 @@ import ArticleInventoryOptimization from "./pages/ArticleInventoryOptimization";
 import ArticleKpisAnalysis from "./pages/ArticleKpisAnalysis";
 import ArticleProductManagement from "./pages/ArticleProductManagement";
 import ArticleCustomerLoyalty from "./pages/ArticleCustomerLoyalty";
+import ArticleMarketingPOS from "./pages/ArticleMarketingPOS";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/articulo/analisis-ventas-kpis-negocio" element={<ArticleKpisAnalysis />} />
           <Route path="/articulo/gestion-productos-caos-control-total" element={<ArticleProductManagement />} />
           <Route path="/articulo/fidelizar-clientes-pos-inteligente" element={<ArticleCustomerLoyalty />} />
+          <Route path="/articulo/marketing-punto-venta-convierte-visitas-ventas" element={<ArticleMarketingPOS />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
