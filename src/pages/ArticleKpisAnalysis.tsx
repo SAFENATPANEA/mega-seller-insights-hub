@@ -1,21 +1,81 @@
-
 import { Calendar, User, Clock, ArrowLeft, BarChart3, TrendingUp, Target, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { createBlogPostSchema, createBreadcrumbSchema } from '../utils/structuredData';
 
 const ArticleKpisAnalysis = () => {
+  const articleData = {
+    title: "Análisis de Ventas: KPIs que Todo Dueño de Negocio Debe Conocer",
+    description: "Descubre los indicadores clave de rendimiento que transformarán tu toma de decisiones empresariales. Aprende a medir, analizar y optimizar el desempeño de tu negocio con métricas que realmente importan.",
+    author: "Ana Torres",
+    datePublished: "2024-12-10T10:00:00-05:00",
+    dateModified: "2024-12-10T10:00:00-05:00",
+    image: "/lovable-uploads/kpi.png",
+    keywords: ["KPIs", "análisis de ventas", "indicadores de rendimiento", "métricas empresariales", "análisis de datos", "POS", "sistema punto de venta", "ROI", "margen de beneficio", "rotación de inventario"]
+  };
+
+  const blogPostSchema = createBlogPostSchema({
+    ...articleData,
+    url: window.location.href
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Inicio", url: "/" },
+    { name: "Blog", url: "/" },
+    { name: "Análisis de Datos", url: "/?category=analisis-datos" },
+    { name: articleData.title, url: window.location.href }
+  ]);
+
+  const combinedSchema = [blogPostSchema, breadcrumbSchema];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--md-sys-color-background)' }}>
+      <SEOHead
+        title={articleData.title}
+        description={articleData.description}
+        keywords={arrayToString(articleData.keywords)}
+        author={articleData.author}
+        ogType="article"
+        ogImage={articleData.image}
+        canonicalUrl={window.location.href}
+        jsonLd={combinedSchema}
+      />
+      
       <Header />
       
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" role="main">
         {/* Breadcrumb Navigation */}
         <nav className="mb-8" aria-label="Navegación de página">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link 
+                to="/" 
+                className="hover:opacity-70 transition-opacity"
+                style={{ color: 'var(--md-sys-color-primary)' }}
+              >
+                Inicio
+              </Link>
+            </li>
+            <li className="text-gray-400">/</li>
+            <li>
+              <Link 
+                to="/" 
+                className="hover:opacity-70 transition-opacity"
+                style={{ color: 'var(--md-sys-color-primary)' }}
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="text-gray-400">/</li>
+            <li className="text-gray-600">Análisis de Datos</li>
+          </ol>
+          
           <Link 
             to="/" 
-            className="inline-flex items-center space-x-2 text-sm hover:opacity-70 transition-opacity"
+            className="inline-flex items-center space-x-2 text-sm hover:opacity-70 transition-opacity mt-2"
             style={{ color: 'var(--md-sys-color-primary)' }}
           >
             <ArrowLeft size={16} />
@@ -38,18 +98,17 @@ const ArticleKpisAnalysis = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Análisis de Ventas: KPIs que Todo Dueño de Negocio Debe Conocer
+            {articleData.title}
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Descubre los indicadores clave de rendimiento que transformarán tu toma de decisiones empresariales. 
-            Aprende a medir, analizar y optimizar el desempeño de tu negocio con métricas que realmente importan.
+            {articleData.description}
           </p>
           
           <div className="flex items-center space-x-6 text-sm mb-8" style={{ color: 'var(--md-sys-color-outline)' }}>
             <div className="flex items-center space-x-2">
               <User size={18} aria-hidden="true" />
-              <span>Ana Torres</span>
+              <span>{articleData.author}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Calendar size={18} aria-hidden="true" />
@@ -68,6 +127,8 @@ const ArticleKpisAnalysis = () => {
             src="/lovable-uploads/kpi.png"
             alt="Dashboard con gráficos de KPIs de ventas mostrando análisis de datos empresariales"
             className="w-full h-64 md:h-96 object-cover"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
 
@@ -270,6 +331,7 @@ const ArticleKpisAnalysis = () => {
               background: 'var(--md-sys-color-primary-gradient)',
               color: 'var(--md-sys-color-on-primary)'
             }}
+            aria-label="Conocer más sobre MegaSeller POS"
           >
             Conocer MegaSeller POS
           </button>
@@ -280,5 +342,8 @@ const ArticleKpisAnalysis = () => {
     </div>
   );
 };
+
+// Helper function to convert array to string
+const arrayToString = (arr: string[]): string => arr.join(', ');
 
 export default ArticleKpisAnalysis;

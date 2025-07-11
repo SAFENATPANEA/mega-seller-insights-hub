@@ -7,6 +7,8 @@ import BlogCard from '../components/BlogCard';
 import CategoryFilter from '../components/CategoryFilter';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
+import { createWebsiteSchema, createOrganizationSchema } from '../utils/structuredData';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -105,14 +107,29 @@ const Index = () => {
     ? blogPosts 
     : blogPosts.filter(post => post.category === activeCategory);
 
+  // Structured data
+  const websiteSchema = createWebsiteSchema();
+  const organizationSchema = createOrganizationSchema();
+  const combinedSchema = [websiteSchema, organizationSchema];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--md-sys-color-background)' }}>
+      <SEOHead
+        title="Blog MegaSeller - Consejos y Estrategias para tu Negocio"
+        description="Descubre consejos expertos, estrategias probadas y las mejores prácticas para hacer crecer tu negocio con tecnología POS inteligente. Artículos sobre gestión de inventario, atención al cliente, análisis de datos y más."
+        keywords="sistema POS, punto de venta, gestión de inventario, análisis de ventas, fidelización de clientes, marketing retail, tecnología POS, MegaSeller, blog empresarial"
+        author="MegaSeller POS"
+        ogType="website"
+        canonicalUrl={window.location.href}
+        jsonLd={combinedSchema}
+      />
+      
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16">
+      <section className="py-16" role="banner" aria-labelledby="hero-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--md-sys-color-on-primary-container)' }}>
+          <h1 id="hero-title" className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--md-sys-color-on-primary-container)' }}>
             Blog MegaSeller
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -122,9 +139,12 @@ const Index = () => {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
         {/* Featured Article */}
-        <FeaturedArticle {...featuredArticle} />
+        <section aria-labelledby="featured-title">
+          <h2 id="featured-title" className="sr-only">Artículo destacado</h2>
+          <FeaturedArticle {...featuredArticle} />
+        </section>
 
         {/* Category Filter */}
         <CategoryFilter 
@@ -134,11 +154,12 @@ const Index = () => {
         />
 
         {/* Blog Grid */}
-        <section className="mb-16">
+        <section className="mb-16" aria-labelledby="articles-title">
+          <h2 id="articles-title" className="sr-only">Artículos del blog</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
               <BlogCard
-                key={index}
+                key={`${post.slug}-${index}`}
                 title={post.title}
                 excerpt={post.excerpt}
                 author={post.author}
