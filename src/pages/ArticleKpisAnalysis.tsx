@@ -128,7 +128,7 @@ const ArticleKpisAnalysis = () => {
             alt="Dashboard con gráficos de KPIs de ventas mostrando análisis de datos empresariales"
             className="w-full h-64 md:h-96 object-cover"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
 
