@@ -3,7 +3,7 @@ import { Mail, Send, Loader2, CheckCircle } from 'lucide-react'; // Importamos n
 
 const Newsletter = () => {
   // TU URL DEL WORKER - ¡CAMBIA ESTO!
-  const WORKER_URL = import.meta.env.VITE_WORKER_URL || 'https://mailer-worker.centralguigue5983.workers.dev';
+  const WORKER_URL = import.meta.env.VITE_WORKER_URL || 'https://ms-mailer-worker.centralguigue5983.workers.dev';
 
   const [email, setEmail] = useState('');
   // Estado más robusto para manejar la UI: 'idle', 'loading', 'success', 'error'
