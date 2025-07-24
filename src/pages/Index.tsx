@@ -9,6 +9,7 @@ import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { createWebsiteSchema, createOrganizationSchema } from '../utils/structuredData';
+import AdInFeed from '../components/AdInFeed';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -153,6 +154,7 @@ const Index = () => {
           onCategoryChange={setActiveCategory}
         />
 
+
         {/* Blog Grid */}
         <section className="mb-16" aria-labelledby="articles-title">
           <h2 id="articles-title" className="sr-only">Artículos del blog</h2>
@@ -175,6 +177,11 @@ const Index = () => {
 
         {/* Newsletter */}
         <Newsletter />
+
+        {/* AdSense In-Feed Ad al final, antes del Footer */}
+        <div className="flex justify-center my-8">
+          <AdInFeed />
+        </div>
       </main>
 
       <Footer />
