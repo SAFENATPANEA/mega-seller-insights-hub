@@ -75,7 +75,7 @@ export const useSEO = (seoData: SEOData) => {
 
     // JSON-LD structured data
     if (seoData.jsonLd) {
-      let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+      let jsonLdScript = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
       if (jsonLdScript) {
         jsonLdScript.remove();
       }
