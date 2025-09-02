@@ -93,16 +93,6 @@ const Index = () => {
       category: "Gestión de Inventario",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       slug: "/articulo/inventario-estacional-planifica-grandes-retailers"
-    },
-    {
-      title: "La importancia de la gestión de inventario para no perder dinero en inflación",
-      excerpt: "Descubre cómo una gestión inteligente del inventario puede protegerte de las pérdidas por inflación. Aprende estrategias de alertas de stock bajo y control de ganancias.",
-      author: "Patricia Morales",
-      date: "20 Dic 2024",
-      readTime: "10 min",
-      category: "Gestión de Inventario",
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      slug: "/articulo/gestion-inventario-proteccion-inflacion"
     }
   ];
 
