@@ -25,12 +25,13 @@ const Index = () => {
   ];
 
   const featuredArticle = {
-    title: "5 Estrategias para Optimizar tu Inventario y Reducir Costos",
-    excerpt: "Descubre cómo una gestión inteligente del inventario puede transformar la rentabilidad de tu negocio. Aprende técnicas probadas que utilizan los retailers más exitosos.",
-    author: "María González",
-    date: "15 Dic 2024",
-    readTime: "8 min lectura",
-    image: "/lovable-uploads/e9615d23-b2e8-44d5-b037-30d58e0a1c7b.png"
+    title: "El Problema: Cuando los Productos se Vuelven un Dolor de Cabeza",
+    excerpt: "¿Tu catálogo de productos es un caos? Desde SKUs duplicados hasta precios desactualizados, te mostramos cómo transformar el desorden en un sistema organizado que te ahorre tiempo y dinero.",
+    author: "Roberto Silva",
+    date: "8 Dic 2024",
+    readTime: "7 min lectura",
+    image: "/lovable-uploads/661c74a8-8b39-4eb9-9aa9-497448c101f1.png",
+    slug: "/articulo/gestion-productos-caos-control-total"
   };
 
   const blogPosts = [
@@ -144,7 +145,7 @@ const Index = () => {
         {/* Featured Article */}
         <section aria-labelledby="featured-title">
           <h2 id="featured-title" className="sr-only">Artículo destacado</h2>
-          <FeaturedArticle {...featuredArticle} />
+          <FeaturedArticle {...featuredArticle} slug={featuredArticle.slug} />
         </section>
 
         {/* Category Filter */}
