@@ -94,6 +94,16 @@ const Index = () => {
       category: "Gestión de Inventario",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       slug: "/articulo/inventario-estacional-planifica-grandes-retailers"
+    },
+    {
+      title: "La gestión multidivisa sin enloquecer: Por qué un POS es tu mejor aliado",
+      excerpt: "Maneja BS, USD, Zelle y PagoMóvil sin complicaciones. Descubre cómo un sistema POS inteligente simplifica las transacciones en múltiples divisas.",
+      author: "Patricia Fernández",
+      date: "18 Dic 2024",
+      readTime: "9 min",
+      category: "Tecnología POS",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      slug: "/articulo/gestion-multidivisa-pos-aliado"
     }
   ];
 
