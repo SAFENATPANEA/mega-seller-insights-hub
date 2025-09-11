@@ -81,7 +81,7 @@ export const useSEO = (seoData: SEOData) => {
       }
       
       jsonLdScript = document.createElement('script');
-      jsonLdScript.type = 'application/ld+json';
+      jsonLdScript.setAttribute('type', 'application/ld+json');
       jsonLdScript.textContent = JSON.stringify(seoData.jsonLd);
       document.head.appendChild(jsonLdScript);
     }

@@ -12,6 +12,7 @@ import ArticleCustomerLoyalty from "./pages/ArticleCustomerLoyalty";
 import ArticleMarketingPOS from "./pages/ArticleMarketingPOS";
 import ArticlePOSSecurity from "./pages/ArticlePOSSecurity";
 import ArticleSeasonalInventory from "./pages/ArticleSeasonalInventory";
+import ArticleMultiCurrency from "./pages/ArticleMultiCurrency";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ConsentBanner from "./components/ConsentBanner";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/articulo/marketing-punto-venta-convierte-visitas-ventas" element={<ArticleMarketingPOS />} />
           <Route path="/articulo/seguridad-sistemas-pos-protege-negocio-clientes" element={<ArticlePOSSecurity />} />
           <Route path="/articulo/inventario-estacional-planifica-grandes-retailers" element={<ArticleSeasonalInventory />} />
+          <Route path="/articulo/gestion-multidivisa-pos-aliado" element={<ArticleMultiCurrency />} />
           <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

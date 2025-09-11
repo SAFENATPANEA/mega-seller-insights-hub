@@ -9,9 +9,10 @@ interface FeaturedArticleProps {
   date: string;
   readTime: string;
   image: string;
+  slug?: string;
 }
 
-const FeaturedArticle = ({ title, excerpt, author, date, readTime, image }: FeaturedArticleProps) => {
+const FeaturedArticle = ({ title, excerpt, author, date, readTime, image, slug }: FeaturedArticleProps) => {
   return (
     <section className="mb-16">
       <div className="elevation-2 corner-large bg-white overflow-hidden">
@@ -61,7 +62,7 @@ const FeaturedArticle = ({ title, excerpt, author, date, readTime, image }: Feat
             </div>
             
             <Link
-              to="/articulo/optimizar-inventario-reducir-costos"
+              to={slug || "/articulo/optimizar-inventario-reducir-costos"}
               className="inline-block px-6 py-3 font-medium corner-medium hover:opacity-90 transition-opacity duration-200"
               style={{ 
                 background: 'var(--md-sys-color-primary-gradient)',
