@@ -14,6 +14,7 @@ import ArticlePOSSecurity from "./pages/ArticlePOSSecurity";
 import ArticleSeasonalInventory from "./pages/ArticleSeasonalInventory";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ConsentBanner from "./components/ConsentBanner";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ConsentBanner />
     </TooltipProvider>
   </QueryClientProvider>
 );
